@@ -1,14 +1,13 @@
 #include <iostream>
-#include <windows.h>
 #include "LL1Parser.h"
 #include "print.h"
 #include "read.h"
 
 int main() {
-    SetConsoleOutputCP(CP_UTF8);
-    SetConsoleCP(CP_UTF8);
+    // 将XMAKE_PROJECT_ROOT路径进行拼接
+    std::string inputPath = std::string(XMAKE_PROJECT_ROOT) + "/data/input.txt";
 
-    readGrammar("input.txt");
+    readGrammar(inputPath);
     eliminateLeftRecursion(grammar);
     extractLeftFactoring(grammar);
     // 打印当前的终结符
@@ -29,6 +28,6 @@ int main() {
     std::vector<std::string> inputStrings = readInput();
     // 调用parse函数进行分析
     parse(inputStrings, followSet, parseTable);
-    //system("pause");
+
     return 0;
 }
