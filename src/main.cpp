@@ -4,8 +4,8 @@
 #include "read.h"
 
 int main() {
-    // 将XMAKE_PROJECT_ROOT路径进行拼接
-    std::string inputPath = std::string(XMAKE_PROJECT_ROOT) + "/data/input.txt";
+    // 将PROJECT_ROOT路径进行拼接
+    std::string inputPath = std::string(PROJECT_ROOT) + "/data/input.txt";
 
     readGrammar(inputPath);
     eliminateLeftRecursion(grammar);
